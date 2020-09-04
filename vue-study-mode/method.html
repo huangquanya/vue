@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>methods Option</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <h1>methods Option</h1>
+    <hr>
+    <div id="app">
+        {{ a }}
+        <p><btn class="btn" @click="add(3)"></btn></p>
+    </div>
+
+    <script type="text/javascript">
+        var btn={
+        template:`<button>组件Add</button>`     
+    }
+        var app=new Vue({
+            el:'#app',
+            components:{
+                "btn":btn
+            }
+            ,
+            data:{
+                a:1
+            },
+            methods:{
+                add:function(){
+                    this.a++
+                }
+            }
+        })
+    </script>
+</body>
+</html>
