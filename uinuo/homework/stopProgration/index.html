@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            color: #fff;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: #000;
+        }
+        .grandson{
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        father
+        <div class="son">
+            son
+            <div class="grandson">grandson</div>
+        </div>
+    </div>
+    <script>
+        const father = document.querySelector('.father')
+        const son = document.querySelector('.son')
+        const grandson = document.querySelector('.grandson')
+
+        // son.addEventListener('click',e=>{e.cancelBubble = true})
+        // son.addEventListener('click',(e)=>{e.stopPropagation()},true)
+        son.addEventListener('click',(e)=>e.stopImmediatePropagation(),true)
+        son.addEventListener('click',(e)=>console.log('不会阻止其他事件，冒泡阶段'))
+        son.addEventListener('click',(e)=>console.log('不会阻止其他事件,捕获阶段'),true)
+        grandson.addEventListener('click',(e)=>console.log('阻止捕获失败'))
+        father.addEventListener('click', (e)=>console.log('冒泡成功'))
+        
+        
+    </script>
+</body>
+</html>
