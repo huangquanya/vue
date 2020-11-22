@@ -1,0 +1,18 @@
+<div id="app">
+    {{ message }}
+    <br/>
+    <div v-bind:title="message" v-on:click="funcName">
+        123456
+    </div>
+</div>
+<script type="module">
+import {ToyVue as Vue} from "./toy-vue.js";
+
+var app = new Vue({
+    el:'#app',
+    data:{
+        message: 'Hello Vue!'
+    },
+})
+
+</script>

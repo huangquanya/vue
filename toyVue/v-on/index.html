@@ -1,0 +1,23 @@
+<div id="app">
+    {{ message }}
+    <div v-bind:title="message" v-on:click="funcName">
+        123456
+    </div>
+</div>
+<script type="module">
+import {ToyVue as Vue} from "./toy-vue-2.js";
+
+var app = new Vue({
+    el:'#app',
+    data:{
+        message: 'Hello Vue!'
+    },
+    methods:{
+        // 不能使用箭头函数
+        funcName:function(){
+            this.message = this.message.split('').reverse().join('')
+        }
+    }
+})
+
+</script>
